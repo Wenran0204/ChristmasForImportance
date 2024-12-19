@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的圣诞愿望！</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background: linear-gradient(to bottom, #ffefba, #ffffff);
+            /* 圣诞风背景渐变 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .Beijing5 {
+            width: 100vw;
+            /* 图片宽度设置为视口宽度的 100%，确保图片水平填满屏幕 */
+            height: 100vh;
+            /* 图片高度设置为视口高度的 100%，确保图片垂直填满屏幕 */
+            object-fit: cover;
+            /* 图片按比例缩放填充整个容器，多余部分会被裁剪，避免图片变形 */
+            position: fixed;
+            /* 将图片固定在视口中，不随页面内容滚动 */
+            top: 0;
+            /* 图片的顶部边界与视口顶部对齐 */
+            left: 0;
+            /* 图片的左侧边界与视口左侧对齐 */
+            z-index: -1;
+            /* 设置图片的层级为 -1，使其位于其他内容的下方，作为背景 */
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            color: #333;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #2f1675;
+            text-shadow: 2px 2px #b68981;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 12px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff6347;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            position: relative;
+        }
+
+        .button:hover {
+            background-color: #d9534f;
+            transform: scale(1.05);
+        }
+
+        .button::before {
+            content: "🎄";
+            /* 圣诞树图标 */
+            position: absolute;
+            left: -30px;
+            font-size: 20px;
+        }
+
+        .button::after {
+            content: "❄️";
+            /* 雪花图标 */
+            position: absolute;
+            right: -30px;
+            font-size: 20px;
+        }
+
+        .side-image {
+            position: absolute;
+    left: 20px; /* 距离左边的间距 */
+    bottom: 20px; /* 距离底部的间距 */
+    width: 30%; /* 宽度占页面宽度的 30% */
+    max-width: 300px; /* 设置最大宽度，避免过大 */
+    border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images\Beijing5.png" alt="背景图片" class="Beijing5">
+    <div class="container">
+        <h1>圣诞快乐！看到了吗，这是一只魔法小猫，它能实现你的愿望！那么，快点许个愿吧！</h1>
+        <button class="button" onclick="goToExternalLink1()">我想变得更优秀！天下唯我独尊！</button>
+        <button class="button" onclick="goToExternalLink2()">想要一个听话懂事，知书达理样样精通的女朋友！</button>
+        <button class="button" onclick="goToExternalLink3()">想和这个程序的作者一起过圣诞节！</button>
+    </div>
+    <img class="side-image" src="images\cat.png" alt="圣诞图片">
+
+    <script>
+        // 跳转函数
+        function goToPage(page) {
+            window.location.href = page; // 根据传入的页面跳转
+        }
+        // 跳转到外部链接
+        function goToExternalLink1() {
+            window.location.href = "http://gd.whut.edu.cn/zs/zsjz/202301/t20230118_546547.shtml";
+        }
+        function goToExternalLink2() {
+            window.location.href = "https://chatgpt.com/";
+        }
+        function goToExternalLink3() {
+            alert("我不知道你是谁，但还是很开心！真心滴祝福2025年万事顺遂呀！当然，如果你是真的想找我玩，现在去微信给我发消息！");
+            
+        }
+    </script>
+</body>
+
+</html>
+

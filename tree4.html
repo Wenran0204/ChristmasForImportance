@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的树</title>
+    <style>
+        /* 基础样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black; /* 背景色为黑色 */
+            color: white; /* 文字颜色为白色 */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* 禁止滚动条 */
+            display: flex;
+            position: relative;
+            height: 100vh;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* 图片宽度占满整个屏幕 */
+            height: 100%; /* 图片高度占满整个屏幕 */
+            object-fit: cover; /* 保持比例缩放，覆盖整个屏幕 */
+            z-index: -1; /* 图片置于内容下方 */
+        }
+
+        /* 雪花样式 */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            font-size: 14px;
+            color: white;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(calc(-50vw + 50px));
+                opacity: 0.5;
+            }
+        }
+
+        /* 图片样式 */
+        .image-container {
+            width: 50%; /* 图片占据左侧 50% */
+            height: 100%; /* 高度占满整个页面 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 90%; /* 图片宽度为容器的 90% */
+            height: auto; /* 高度自适应 */
+            border-radius: 10px; /* 圆角效果 */
+            box-shadow: 0 4px 10px rgba(171, 208, 220, 0.5); /* 图片阴影 */
+        }
+
+        /* 文字框样式 */
+        .text-box {
+            width: 50%; /* 文字框占右侧 50% */
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+            padding: 20px;
+            box-sizing: border-box; /* 包括内边距 */
+            overflow-y: auto; /* 超出容器高度时显示垂直滚动条 */
+            scroll-behavior: smooth; /* 滚动条平滑效果 */
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 1.6; /* 增加行高，方便阅读 */
+        }
+
+        .wishes-button {
+    font-size: 16px; /* 文字大小 */
+    color: #066d55; /* 文字颜色 */
+    background: none; /* 去掉背景色 */
+    background-color: #e1a7cd; /* 鼠标悬停时背景变
+    border: none; /* 去掉边框 */
+    padding: 10px 20px; /* 添加适当的内边距 */
+    cursor: pointer; /* 鼠标指针样式 */
+    border-radius: 10px; /* 圆角按钮 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加柔和阴影效果 */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* 平滑过渡效果 */
+    position: relative; /* 相对于父容器定位 */
+    margin-top: 20px; /* 距离文字的上方间距 */
+    display: inline-block; /* 使按钮更像块状元素 */
+}
+
+.wishes-button:hover {
+    background-color: #f0f8ff; /* 鼠标悬停时背景变为浅蓝色 */
+    color: #0056b3; /* 鼠标悬停时文字变深蓝 */
+    transform: scale(1.05); /* 鼠标悬停时轻微放大 */
+    text-decoration: underline; /* 添加下划线 */
+}
+    </style>
+</head>
+<body>
+    <!-- 动态雪花 -->
+    <div id="snowflakes"></div>
+
+    <!-- 左侧图片 -->
+    <div class="image-container">
+        <img src="images\minetree.png" alt="示例图片">
+    </div>
+
+    <img src="images\biankuang.png" alt="背景图" class="background-image">
+    
+    <!-- 右侧文字框 -->
+    <div class="text-box">
+        <p>To:我目前（为啥要用目前哈哈哈哈）在温州最大的人脉————(自行带入名字。因为我觉得叫你学长又不太好我又没考上你学校，叫你名字太没礼貌了，叫你兄弟又太不正经了O(∩_∩)O哈哈~)
+            算上这个界面，一共应该一千多行代码了吧，诶你不会觉得我好幼稚吧？没关系，我写着开心就行黑黑。奥对，左边那颗丑得不像圣诞树的圣诞树就是我画的哈哈哈哈，毫无绘画天赋可言，犹如蔡文姬打野一样抽象，但这不重要。其实没什么祝福，因为不管是写了什么祝福凭你的实力一定可以实现的。咱俩好像认识三个月多了吧，1/4年了诶！但这并不重要，和你玩得很开心也很高兴认识你(＾－＾)V。我会不会太冒昧？因为我真的把你当做我很好的朋友了呀，有机会欢迎来哈尔滨找我玩，当然要信得过我的驾驶技术也包车接车送哈哈哈哈哈哈。
+           还有，圣诞快乐！愿幸福之神永远庇佑你哈哈哈哈。
+           希望我们都有光明的未来!有机会可以一起去玩嘛！
+        </p>
+        <button class="wishes-button" onclick="wishes()">当然要许个愿望啦</button>
+    </div>
+    
+    <script>
+        function wishes() {
+            window.location.href = "wishes.html";
+        }
+        // 创建雪花
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw'; // 随机水平位置
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // 随机下落时间
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // 随机大小
+            document.body.appendChild(snowflake);
+
+            // 雪花下落后移除
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        // 每隔 100 毫秒生成一个雪花
+        setInterval(createSnowflake, 100);
+    </script>
+</body>
+</html>

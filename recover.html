@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找回密码</title>
+    <style>
+        /* 页面基础样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            justify-content: center; /* 水平居中 */
+            min-height: 100vh; /* 占满整个视口高度 */
+            color: white; /* 默认文字颜色 */
+        }
+        
+
+        /* 背景图片样式 */
+        .background {
+            width: 100vw; /* 图片宽度为视口宽度 */
+            height: 100vh; /* 图片高度为视口高度 */
+            object-fit: cover; /* 图片按比例缩放，避免变形 */
+            position: fixed; /* 背景图片固定 */
+            top: 0; /* 背景图片顶部对齐 */
+            left: 0; /* 背景图片左侧对齐 */
+            z-index: -1; /* 背景层级放在最底层 */
+        }
+
+        /* 居中内容容器 */
+        .center-container {
+            text-align: center; /* 内容居中 */
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            padding: 20px 40px; /* 内边距 */
+            border-radius: 15px; /* 圆角边框 */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+        }
+
+        /* 图片样式 */
+        
+
+        .center-container img.jishu {
+            width: 60%; /* 图片宽度为内容栏的 80% */
+            height: auto; /* 按比例缩放 */
+            border-radius: 10px; /* 圆角效果 */
+            margin-top: 20px; /* 与上方内容的间距 */
+        }
+
+        /* 文字样式 */
+        .center-container h1 {
+            font-size: 24px; /* 标题字体大小 */
+            margin: 0; /* 去掉标题默认外边距 */
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            font-size: 18px; /* 按钮文字大小 */
+            color: white; /* 按钮文字颜色 */
+            background-color: #007BFF; /* 按钮背景颜色 */
+            border: none; /* 去掉边框 */
+            border-radius: 5px; /* 圆角按钮 */
+            padding: 10px 20px; /* 内边距 */
+            cursor: pointer; /* 鼠标指针样式 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 按钮阴影 */
+            position: fixed; /* 固定位置 */
+            bottom: 20px; /* 距离页面底部 */
+            left: 20px; /* 距离页面左侧 */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* 背景颜色和平滑缩放过渡 */
+        }
+
+        /* 返回按钮悬停效果 */
+        .back-button:hover {
+            background-color: #0056b3; /* 悬停时背景颜色变深 */
+            transform: scale(1.05); /* 悬停时按钮放大 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景图片 -->
+    <img src="images/Beijing4.jpg" alt="背景图片" class="background">
+
+    <!-- 居中内容 -->
+    <div class="center-container">
+        <h1>很好！欢迎来到该界面</h1>
+        <p>当你点到这个界面你应该意识到问题的严重性了！既然你不记得我的生日，那你级数总该会算吧？？这道题的答案就是密码，如果你又不想算又不记得我的生日，你可以在密码栏输入“你最棒啦！你是人间小天使！和你一起玩超级开心！”我也勉强算通过嘿嘿~（不管哪个答案记得后面加你名字的小写缩写哦(*^▽^*)）</p>
+        
+        <!-- 返回按钮 -->
+    <button class="back-button" onclick="goback()">返回上一界面</button>
+    <img src="images/jishu.jpg" alt="示例图片" class="jishu">
+    </div>
+    
+
+    
+
+    <script>
+        // 返回页面函数
+        function goback() {
+            window.location.href = "page1.html"; // 跳转到指定页面
+        }
+    </script>
+</body>
+</html>
+
+

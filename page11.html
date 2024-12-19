@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣诞快乐</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffefba, #ffffff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 背景图片样式 */
+        .Beijing3 {
+            width: 100vw;
+            /* 宽度填满屏幕 */
+            height: 100vh;
+            /* 高度填满屏幕 */
+            object-fit: cover;
+            /* 按比例填充整个屏幕，裁剪多余部分 */
+            position: fixed;
+            /* 固定定位 */
+            top: 0;
+            left: 0;
+            z-index: -1;
+            /* 设置层级为最底层 */
+        }
+
+        /* 内容样式 */
+        .container {
+            width: 90%;
+            /* 容器宽度占父级元素的 90% */
+            max-width: 600px;
+            /* 最大宽度为 600 像素，保证在大屏幕上不会过宽 */
+            background: #fff;
+            /* 背景颜色设置为白色 */
+            box-shadow: 0 4px 8px rgba(187, 196, 236, 0.8);
+            /* 添加阴影效果 */
+            /* 阴影参数说明：
+       0：水平偏移量
+       4px：垂直偏移量
+       8px：模糊半径
+       rgba(0, 0, 0, 0.2)：阴影颜色，透明度 20% */
+            border-radius: 10px;
+            /* 圆角边框，半径为 10 像素 */
+            padding: 20px;
+            /* 内边距 20 像素，确保内容与边界有间隔 */
+            z-index: 1;
+            /* 设置层级为 1，确保容器显示在背景图片之上 */
+            background: rgba(255, 255, 255, 0.8);
+            /* 整个容器设置为 80% 透明度，包括内容（文字、按钮） */
+        }
+
+        /* 设置标题样式 */
+        h1 {
+            font-size: 24px;
+            /* 字体大小为 24 像素 */
+            color: #2c3e50;
+            /* 字体颜色为深灰蓝色 */
+            margin-bottom: 20px;
+            /* 底部外边距 20 像素 */
+        }
+
+        /* 设置段落样式 */
+        p {
+            font-size: 18px;
+            /* 字体大小为 18 像素 */
+            color: #555;
+            /* 字体颜色为浅灰色 */
+            margin: 20px 0;
+            /* 上下外边距为 20 像素 */
+            line-height: 1.6;
+            /* 行高设置为 1.6，增加文字间距，提高可读性 */
+        }
+
+        /* 设置按钮样式 */
+        button {
+            width: 100%;
+            /* 宽度占父级元素的 100% */
+            max-width: 200px;
+            /* 最大宽度为 200 像素，确保按钮不会过宽 */
+            padding: 10px 15px;
+            /* 内边距，上下 10 像素，左右 15 像素 */
+            font-size: 16px;
+            /* 字体大小为 16 像素 */
+            font-weight: bold;
+            /* 字体加粗 */
+            color: #fff;
+            /* 字体颜色设置为白色 */
+            background-color: #007BFF;
+            /* 按钮背景颜色设置为蓝色 */
+            border: none;
+            /* 移除按钮边框 */
+            border-radius: 5px;
+            /* 圆角边框，半径为 5 像素 */
+            margin: 10px;
+            /* 外边距 10 像素 */
+            cursor: pointer;
+            /* 鼠标悬停时显示指针样式 */
+            transition: all 0.3s ease-in-out;
+            /* 添加过渡效果，时长 0.3 秒 */
+        }
+
+        /* 鼠标悬停时的按钮样式 */
+        button:hover {
+            background-color: #df7eda;
+            /* 悬停时按钮背景颜色变为深蓝色 */
+        }
+
+        /* 设置按钮容器样式 */
+        .button-container {
+            display: flex;
+            /* 使用 Flexbox 布局 */
+            justify-content: center;
+            /* 水平居中按钮 */
+            flex-wrap: wrap;
+            /* 当按钮过多时，允许换行 */
+            gap: 20px;
+            /* 按钮之间的间隔为 20 像素 */
+            opacity: 0.8;
+            /* 按钮容器整体透明度设置为 80% */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 背景图片 -->
+    <img class="Beijing3" src="images\Beijing3.png" alt="背景图片">
+
+    <!-- 内容区域 -->
+    <div class="container">
+        <h1 id="main-title">嘿！圣诞快乐</h1>
+        <p id="main-text">我每年都会送刚给我最好的朋友圣诞树……</p>
+        <div class="button-container">
+            <button id="button1" onclick="updateContent(1)">你好闲啊</button>
+            <button id="button2" onclick="updateContent(2)">诶？我也有吗</button>
+        </div>
+    </div>
+
+    <script>
+        function updateContent(option) {
+    const title = document.getElementById('main-title');
+    const text = document.getElementById('main-text');
+    const button1 = document.getElementById('button1');
+    const button2 = document.getElementById('button2');
+
+    if (option === 1) {
+        title.textContent = "你再说一遍？！";
+        text.textContent = "数学之神和兰陵王之神不会保佑你了呜呜呜";
+        button1.textContent = "点我，用20年单身换退出程序";
+        button2.textContent = "对不起对不起对不起我点错了";
+
+        // 添加按钮1的跳转功能
+        button1.onclick = () => {
+            window.close(); // 尝试关闭当前页面
+        };
+
+        // 添加按钮2的关闭功能
+        button2.onclick = () => {
+            window.location.href = "tree1.html";
+        };
+
+    } else if (option === 2) {
+        title.textContent = "当然啦！";
+        text.textContent = "很高兴能认识你，并且有幸成为挚友！";
+        button1.textContent = "我也是！";
+        button2.textContent = "可是我并不感兴趣，我也不喜欢你，（用30年单身换退出程序）";
+
+        // 添加按钮1的跳转功能
+        button1.onclick = () => {
+            window.location.href = "tree1.html"; // 目标页面链接
+        };
+
+        // 添加按钮2的关闭功能
+        button2.onclick = () => {
+            window.close(); // 尝试关闭当前页面
+        };
+    }
+}
+    </script>
+</body>
+
+</html>

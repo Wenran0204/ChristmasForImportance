@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送给最可爱的你</title>
+    <style>
+        /* 背景样式 */
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffefba, #ffffff);
+            overflow: hidden;
+        }
+
+        /* 雪花效果 */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            font-size: 24px;
+            color: white;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateX(0) translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw * var(--horizontal))) translateY(100vh);
+                opacity: 0.3;
+            }
+        }
+
+        /* 图片样式 */
+        .image-container img {
+    height: 45vh; /* 图片高度占屏幕高度的 20% */
+    width: auto; /* 宽度自动，保持图片原始比例 */
+    border-radius: 15px; /* 图片边角设置为圆角，半径为 15 像素 */
+    margin: 0; /* 清除默认的外边距 */
+    position: fixed; /* 使用 fixed 定位将图片固定在页面的特定位置 */
+    bottom: 0; /* 距离页面底部 0 像素 */
+    left: 0; /* 距离页面左侧 0 像素 */
+
+
+}
+.image-container2 img {
+            width: 100%; /* 宽度占满整个页面 */
+            height: 100%; /* 高度占满整个页面 */
+            object-fit: cover; /* 保证图片按比例缩放填满整个容器 */
+            position: fixed; /* 图片固定在页面上 */
+            top: 0; /* 顶部对齐 */
+            left: 0; /* 左侧对齐 */
+            z-index: -1; /* 让图片位于所有内容的底层 */
+        }
+
+        .image-container3 img {
+    height: 30vh; /* 图片高度占屏幕高度的 20% */
+    width: auto; /* 宽度自动，保持图片原始比例 */
+    border-radius: 15px; /* 设置圆角半径为 15 像素 */
+    margin: 0; /* 清除外边距 */
+    position: fixed; /* 固定定位，确保图片固定在页面上的特定位置 */
+    bottom: 0; /* 图片贴近页面底部 */
+    right: 0; /* 图片贴近页面右侧 */
+
+
+}
+
+
+        /* 按钮样式 */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 两列 */
+            gap: 20px; /* 按钮之间的间距 */
+            z-index: 1;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            color: white;
+            background-color: #ff6347; /* 圣诞红 */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative; /* 相对定位，允许通过 top 或 bottom 调整位置 */
+            top: -70%; /* 向上移动 10% 的页面高度 */
+        }
+
+        button:hover {
+            background-color: #d9534f; /* 深红色悬停效果 */
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        button::before {
+            content: "🎄"; /* 可爱图标 */
+            font-size: 24px;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px #ff6347;
+            position: relative; /* 相对定位，允许通过 top 或 bottom 调整位置 */
+            top: -10%; /* 向上移动 10% 的页面高度 */
+            text-align: center; /* 居中对齐 */
+        }
+
+        @media (max-width: 600px) {
+            button {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 标题 -->
+    <h1>🎅  你的星座！ 🎅</h1>
+
+    <!-- 插入图片 -->
+    <div class="image-container">
+        <img src="images\tree.png" alt="lu">
+    </div>
+
+    <div class="image-container2">
+        <img src="images\beijing.png" alt="lu">
+    </div>
+
+    <div class="image-container3">
+        <img src="images\logo.png" alt="lu">
+    </div>
+
+    <!-- 按钮 -->
+    <div class="button-grid">
+        <button onclick="openPage('page1.html')">狮子座</button>
+        <button onclick="openPage('page2.html')">双鱼座</button>
+        <button onclick="openPage('page3.html')">巨蟹座</button>
+        <button onclick="openPage('page4.html')">天蝎座</button>
+    </div>
+
+    <!-- 动态雪花效果 -->
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄'; // 雪花符号
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // 随机速度
+            snowflake.style.fontSize = Math.random() * 10 + 15 + 'px'; // 随机大小
+            snowflake.style.setProperty('--horizontal', Math.random() * 2 - 1); // 随机水平偏移
+            document.body.appendChild(snowflake);
+
+            // 雪花下落后移除
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+
+        // 每隔 200ms 创建一个雪花
+        setInterval(createSnowflake, 200);
+
+        function openPage(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
